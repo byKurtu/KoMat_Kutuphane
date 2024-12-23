@@ -11,38 +11,40 @@ using VeriErisimKatmani;
 
 namespace KoMatKutuphaneApp
 {
-    public partial class DilIslemleri : Form
+    public partial class TurIslemleri : Form
     {
         VeriModel db = new VeriModel();
         int secilenID = -1;
-        public DilIslemleri()
+        public TurIslemleri()
         {
             InitializeComponent();
         }
-        private void DilIslemleri_Load(object sender, EventArgs e)
+
+        private void TurIslemleri_Load(object sender, EventArgs e)
         {
-            dataGridView1.DataSource = db.DilListele();
+            dataGridView1.DataSource = db.TurListele();
         }
+
         private void btn_ekle_Click(object sender, EventArgs e)
         {
             if (!string.IsNullOrEmpty(tb_isim.Text))
             {
-                Dil model = new Dil();
+                Tur model = new Tur();
                 model.Isim = tb_isim.Text;
-                if (db.DilEkle(model))
+                if (db.TurEkle(model))
                 {
-                    MessageBox.Show("Dil eklendi", "Ekleme Başarılı");
+                    MessageBox.Show("Tür eklendi", "Ekleme Başarılı");
                 }
                 else
                 {
                     MessageBox.Show("Bir Hata Oluştu", "Ekleme Başarısız");
                 }
                 tb_isim.Text = "";
-                dataGridView1.DataSource = db.DilListele();
+                dataGridView1.DataSource = db.TurListele();
             }
             else
             {
-                MessageBox.Show("Dil Adı boş bırakılamaz", "Boş veri");
+                MessageBox.Show("Tür Adı boş bırakılamaz", "Boş veri");
             }
         }
 
@@ -51,13 +53,11 @@ namespace KoMatKutuphaneApp
             if (e.Button == MouseButtons.Right)
             {
                 int satir = dataGridView1.HitTest(e.X, e.Y).RowIndex;
-                //Tıklama işleminin kordinatlarının hangi satırın üzerine denk geldiğini bulmamızı sağlar
                 dataGridView1.ClearSelection();
                 if (satir != -1)
                 {
                     contextMenuStrip1.Show(dataGridView1, e.X, e.Y);
                     dataGridView1.Rows[satir].Selected = true;
-                    //hangi satırın üzerinde sağ tıkladıysak o satırın seçili olmasını sağladık.
                     secilenID = Convert.ToInt32(dataGridView1.Rows[satir].Cells[0].Value);
                 }
             }
@@ -65,50 +65,40 @@ namespace KoMatKutuphaneApp
 
         private void TSMI_duzenle_Click(object sender, EventArgs e)
         {
-            Dil d = db.DilGetir(secilenID);
-            tb_id.Text = d.ID.ToString();
-            tb_isim.Text = d.Isim;
+            Tur t = db.TurGetir(secilenID);
+            tb_id.Text = t.ID.ToString();
+            tb_isim.Text = t.Isim;
             btn_duzenle.Visible = true;
         }
 
         private void TSMI_sil_Click(object sender, EventArgs e)
         {
-            db.DilSil(secilenID);
-            dataGridView1.DataSource = db.DilListele();
+            db.TurSil(secilenID);
+            dataGridView1.DataSource = db.TurListele();
         }
 
-        private void button1_Click(object sender, EventArgs e)
+        private void btn_duzenle_Click(object sender, EventArgs e)
         {
-            Dil d = db.DilGetir(secilenID);
+            Tur t = db.TurGetir(secilenID);
             if (!string.IsNullOrEmpty(tb_isim.Text))
             {
-                d.Isim = tb_isim.Text;
-                if (db.DilGuncelle(d))
+                t.Isim = tb_isim.Text;
+                if (db.TurGuncelle(t))
                 {
                     MessageBox.Show("Güncelleme Başarılı", "Başarılı");
                     tb_id.Text = tb_isim.Text = "";
                     btn_duzenle.Visible = false;
-                    dataGridView1.DataSource = db.DilListele();
+                    dataGridView1.DataSource = db.TurListele();
                 }
                 else
                 {
-                    MessageBox.Show("Dil güncellenirken bir hata oluştur", "Başarısız");
+                    MessageBox.Show("Tür güncellenirken bir hata oluştur", "Başarısız");
                 }
             }
             else
             {
-                MessageBox.Show("Dil adi boş bırakılamaz", "Hata");
+                MessageBox.Show("Tür adi boş bırakılamaz", "Hata");
             }
-        }
-
-        private void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
-        {
-
-        }
-
-        private void groupBox1_Enter(object sender, EventArgs e)
-        {
-
         }
     }
 }

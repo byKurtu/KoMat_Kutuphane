@@ -41,3 +41,5 @@ C:\Users\Matrix_2530\Desktop\KoMat_Kutuphane-main\KoMatKutuphaneApp\obj\Debug\Ko
 C:\Users\Matrix_2530\Desktop\KoMat_Kutuphane-main\KoMatKutuphaneApp\obj\Debug\KoMatKutuphaneApp.exe
 C:\Users\Matrix_2530\Desktop\KoMat_Kutuphane-main\KoMatKutuphaneApp\obj\Debug\KoMatKutuphaneApp.pdb
 C:\Users\Matrix_2530\Desktop\KoMat_Kutuphane-main\KoMatKutuphaneApp\obj\Debug\KoMatKutuphaneApp.YazarIslemleri.resources
+C:\Users\Matrix_2530\Desktop\KoMat_Kutuphane-main\KoMatKutuphaneApp\obj\Debug\KoMatKutuphaneApp.TurIslemleri.resources
+C:\Users\Matrix_2530\Desktop\KoMat_Kutuphane-main\KoMatKutuphaneApp\obj\Debug\KoMatKutuphaneApp.YayinEviIslemleri.resources

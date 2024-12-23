@@ -288,9 +288,242 @@ namespace VeriErisimKatmani
 
         #region Tür Metotları
 
+        public List<Tur> TurListele()
+        {
+            List<Tur> turler = new List<Tur>();
 
+            try
+            {
+                komut.CommandText = "SELECT ID, Isim FROM Turler";
+                komut.Parameters.Clear();
+                baglanti.Open();
+                SqlDataReader okuyucu = komut.ExecuteReader();
+                while (okuyucu.Read())
+                {
+                    Tur model = new Tur();
+                    model.ID = okuyucu.GetInt32(0);
+                    model.Isim = okuyucu.GetString(1);
+                    turler.Add(model);
+                }
+                return turler;
+            }
+            catch
+            {
+                return null;
+            }
+            finally
+            {
+                baglanti.Close();
+            }
+        }
+
+        public bool TurEkle(Tur model)
+        {
+            try
+            {
+                komut.CommandText = "INSERT INTO Turler(Isim) VALUES(@isim)";
+                komut.Parameters.Clear();
+                komut.Parameters.AddWithValue("@isim", model.Isim);
+                baglanti.Open();
+                komut.ExecuteNonQuery();
+                return true;
+            }
+            catch
+            {
+                return false;
+            }
+            finally
+            {
+                baglanti.Close();
+            }
+        }
+
+        public Tur TurGetir(int id)
+        {
+            try
+            {
+                komut.CommandText = "SELECT ID, Isim FROM Turler WHERE ID=@id";
+                komut.Parameters.Clear();
+                komut.Parameters.AddWithValue("@id", id);
+                baglanti.Open();
+                SqlDataReader okuyucu = komut.ExecuteReader();
+                Tur model = new Tur();
+                while (okuyucu.Read())
+                {
+                    model.ID = okuyucu.GetInt32(0);
+                    model.Isim = okuyucu.GetString(1);
+                }
+                return model;
+            }
+            catch
+            {
+                return null;
+            }
+            finally
+            {
+                baglanti.Close();
+            }
+        }
+
+        public bool TurGuncelle(Tur model)
+        {
+            try
+            {
+                komut.CommandText = "UPDATE Turler SET Isim=@t WHERE ID=@id";
+                komut.Parameters.Clear();
+                komut.Parameters.AddWithValue("@id", model.ID);
+                komut.Parameters.AddWithValue("@t", model.Isim);
+                baglanti.Open();
+                komut.ExecuteNonQuery();
+                return true;
+            }
+            catch
+            {
+                return false;
+            }
+            finally
+            {
+                baglanti.Close();
+            }
+        }
+
+        public void TurSil(int id)
+        {
+            try
+            {
+                komut.CommandText = "DELETE FROM Turler WHERE ID=@id";
+                komut.Parameters.Clear();
+                komut.Parameters.AddWithValue("@id", id);
+                baglanti.Open();
+                komut.ExecuteNonQuery();
+            }
+            finally
+            {
+                baglanti.Close();
+            }
+        }
 
         #endregion
+
+        #region YayinEvi Metotları
+
+        public List<YayinEvleri> YayinEviListele()
+        {
+            List<YayinEvleri> yayinevleri = new List<YayinEvleri>();
+
+            try
+            {
+                komut.CommandText = "SELECT ID, Isim FROM YayinEvleri";
+                komut.Parameters.Clear();
+                baglanti.Open();
+                SqlDataReader okuyucu = komut.ExecuteReader();
+                while (okuyucu.Read())
+                {
+                    YayinEvleri model = new YayinEvleri();
+                    model.ID = okuyucu.GetInt32(0);
+                    model.Isim = okuyucu.GetString(1);
+                    yayinevleri.Add(model);
+                }
+                return yayinevleri;
+            }
+            catch
+            {
+                return null;
+            }
+            finally
+            {
+                baglanti.Close();
+            }
+        }
+
+        public bool YayinEviEkle(YayinEvleri model)
+        {
+            try
+            {
+                komut.CommandText = "INSERT INTO YayinEvleri(Isim) VALUES(@isim)";
+                komut.Parameters.Clear();
+                komut.Parameters.AddWithValue("@isim", model.Isim);
+                baglanti.Open();
+                komut.ExecuteNonQuery();
+                return true;
+            }
+            catch
+            {
+                return false;
+            }
+            finally
+            {
+                baglanti.Close();
+            }
+        }
+
+        public YayinEvleri YayinEviGetir(int id)
+        {
+            try
+            {
+                komut.CommandText = "SELECT ID, Isim FROM YayinEvleri WHERE ID=@id";
+                komut.Parameters.Clear();
+                komut.Parameters.AddWithValue("@id", id);
+                baglanti.Open();
+                SqlDataReader okuyucu = komut.ExecuteReader();
+                YayinEvleri model = new YayinEvleri();
+                while (okuyucu.Read())
+                {
+                    model.ID = okuyucu.GetInt32(0);
+                    model.Isim = okuyucu.GetString(1);
+                }
+                return model;
+            }
+            catch
+            {
+                return null;
+            }
+            finally
+            {
+                baglanti.Close();
+            }
+        }
+
+        public bool YayinEviGuncelle(YayinEvleri model)
+        {
+            try
+            {
+                komut.CommandText = "UPDATE YayinEvleri SET Isim=@y WHERE ID=@id";
+                komut.Parameters.Clear();
+                komut.Parameters.AddWithValue("@id", model.ID);
+                komut.Parameters.AddWithValue("@y", model.Isim);
+                baglanti.Open();
+                komut.ExecuteNonQuery();
+                return true;
+            }
+            catch
+            {
+                return false;
+            }
+            finally
+            {
+                baglanti.Close();
+            }
+        }
+
+        public void YayinEviSil(int id)
+        {
+            try
+            {
+                komut.CommandText = "DELETE FROM YayinEvleri WHERE ID=@id";
+                komut.Parameters.Clear();
+                komut.Parameters.AddWithValue("@id", id);
+                baglanti.Open();
+                komut.ExecuteNonQuery();
+            }
+            finally
+            {
+                baglanti.Close();
+            }
+        }
+
+        #endregion
+
 
     }
 }

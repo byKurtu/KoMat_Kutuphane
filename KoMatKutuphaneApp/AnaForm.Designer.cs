@@ -55,7 +55,7 @@
             this.TSMI_Yardim});
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
-            this.menuStrip1.Size = new System.Drawing.Size(1257, 28);
+            this.menuStrip1.Size = new System.Drawing.Size(1257, 30);
             this.menuStrip1.TabIndex = 0;
             this.menuStrip1.Text = "menuStrip1";
             // 
@@ -64,7 +64,7 @@
             this.dosyaToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.TSMI_Kapat});
             this.dosyaToolStripMenuItem.Name = "dosyaToolStripMenuItem";
-            this.dosyaToolStripMenuItem.Size = new System.Drawing.Size(64, 24);
+            this.dosyaToolStripMenuItem.Size = new System.Drawing.Size(64, 26);
             this.dosyaToolStripMenuItem.Text = "Dosya";
             // 
             // TSMI_Kapat
@@ -84,7 +84,7 @@
             this.TSMI_Kitaplar,
             this.toolStripSeparator2});
             this.TSMI_KutuphaneIslemleri.Name = "TSMI_KutuphaneIslemleri";
-            this.TSMI_KutuphaneIslemleri.Size = new System.Drawing.Size(154, 24);
+            this.TSMI_KutuphaneIslemleri.Size = new System.Drawing.Size(154, 26);
             this.TSMI_KutuphaneIslemleri.Text = "Kütüphane İşlemleri";
             // 
             // TSMI_diller
@@ -99,6 +99,7 @@
             this.TSMI_turler.Name = "TSMI_turler";
             this.TSMI_turler.Size = new System.Drawing.Size(224, 26);
             this.TSMI_turler.Text = "Türler";
+            this.TSMI_turler.Click += new System.EventHandler(this.TSMI_turler_Click);
             // 
             // TSMI_Yazarlar
             // 
@@ -112,6 +113,7 @@
             this.TSMI_YayinEvleri.Name = "TSMI_YayinEvleri";
             this.TSMI_YayinEvleri.Size = new System.Drawing.Size(224, 26);
             this.TSMI_YayinEvleri.Text = "Yayın Evleri";
+            this.TSMI_YayinEvleri.Click += new System.EventHandler(this.TSMI_YayinEvleri_Click);
             // 
             // toolStripSeparator1
             // 
@@ -134,13 +136,13 @@
             // kiralamalarToolStripMenuItem
             // 
             this.kiralamalarToolStripMenuItem.Name = "kiralamalarToolStripMenuItem";
-            this.kiralamalarToolStripMenuItem.Size = new System.Drawing.Size(99, 24);
+            this.kiralamalarToolStripMenuItem.Size = new System.Drawing.Size(99, 26);
             this.kiralamalarToolStripMenuItem.Text = "Kiralamalar";
             // 
             // TSMI_Yardim
             // 
             this.TSMI_Yardim.Name = "TSMI_Yardim";
-            this.TSMI_Yardim.Size = new System.Drawing.Size(69, 24);
+            this.TSMI_Yardim.Size = new System.Drawing.Size(69, 26);
             this.TSMI_Yardim.Text = "Yardım";
             // 
             // AnaForm
@@ -154,7 +156,7 @@
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.IsMdiContainer = true;
             this.MainMenuStrip = this.menuStrip1;
-            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "AnaForm";
             this.Text = "Kokpit & Matrix Kütüphanesi";
             this.menuStrip1.ResumeLayout(false);

@@ -1,6 +1,6 @@
 ﻿namespace KoMatKutuphaneApp
 {
-    partial class DilIslemleri
+    partial class YayinEviIslemleri
     {
         /// <summary>
         /// Required designer variable.
@@ -55,35 +55,34 @@
             this.groupBox1.Controls.Add(this.label2);
             this.groupBox1.Controls.Add(this.tb_id);
             this.groupBox1.Controls.Add(this.label1);
-            this.groupBox1.Location = new System.Drawing.Point(16, 15);
+            this.groupBox1.Location = new System.Drawing.Point(45, 26);
             this.groupBox1.Margin = new System.Windows.Forms.Padding(4);
             this.groupBox1.Name = "groupBox1";
             this.groupBox1.Padding = new System.Windows.Forms.Padding(4);
             this.groupBox1.Size = new System.Drawing.Size(668, 165);
-            this.groupBox1.TabIndex = 0;
+            this.groupBox1.TabIndex = 4;
             this.groupBox1.TabStop = false;
-            this.groupBox1.Text = "Dil Bilgileri";
-            this.groupBox1.Enter += new System.EventHandler(this.groupBox1_Enter);
+            this.groupBox1.Text = "Yayin Evleri Bilgileri";
             // 
             // btn_duzenle
             // 
-            this.btn_duzenle.Location = new System.Drawing.Point(310, 107);
+            this.btn_duzenle.Location = new System.Drawing.Point(309, 107);
             this.btn_duzenle.Name = "btn_duzenle";
-            this.btn_duzenle.Size = new System.Drawing.Size(99, 28);
+            this.btn_duzenle.Size = new System.Drawing.Size(130, 28);
             this.btn_duzenle.TabIndex = 4;
-            this.btn_duzenle.Text = "Dil Düzenle";
+            this.btn_duzenle.Text = "YayinEvi Düzenle";
             this.btn_duzenle.UseVisualStyleBackColor = true;
             this.btn_duzenle.Visible = false;
-            this.btn_duzenle.Click += new System.EventHandler(this.button1_Click);
+            this.btn_duzenle.Click += new System.EventHandler(this.btn_duzenle_Click);
             // 
             // btn_ekle
             // 
             this.btn_ekle.Location = new System.Drawing.Point(309, 107);
             this.btn_ekle.Margin = new System.Windows.Forms.Padding(4);
             this.btn_ekle.Name = "btn_ekle";
-            this.btn_ekle.Size = new System.Drawing.Size(100, 28);
+            this.btn_ekle.Size = new System.Drawing.Size(129, 28);
             this.btn_ekle.TabIndex = 3;
-            this.btn_ekle.Text = "Dil Ekle";
+            this.btn_ekle.Text = "YayinEvi Ekle";
             this.btn_ekle.UseVisualStyleBackColor = true;
             this.btn_ekle.Click += new System.EventHandler(this.btn_ekle_Click);
             // 
@@ -99,7 +98,7 @@
             // 
             // tb_isim
             // 
-            this.tb_isim.Location = new System.Drawing.Point(75, 75);
+            this.tb_isim.Location = new System.Drawing.Point(105, 81);
             this.tb_isim.Margin = new System.Windows.Forms.Padding(4);
             this.tb_isim.Name = "tb_isim";
             this.tb_isim.Size = new System.Drawing.Size(333, 22);
@@ -108,17 +107,17 @@
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(13, 79);
+            this.label2.Location = new System.Drawing.Point(8, 84);
             this.label2.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(52, 16);
+            this.label2.Size = new System.Drawing.Size(89, 16);
             this.label2.TabIndex = 0;
-            this.label2.Text = "Dil Adı :";
+            this.label2.Text = "YayınEvi Adı :";
             // 
             // tb_id
             // 
             this.tb_id.Enabled = false;
-            this.tb_id.Location = new System.Drawing.Point(75, 43);
+            this.tb_id.Location = new System.Drawing.Point(105, 44);
             this.tb_id.Margin = new System.Windows.Forms.Padding(4);
             this.tb_id.Name = "tb_id";
             this.tb_id.Size = new System.Drawing.Size(333, 22);
@@ -127,7 +126,7 @@
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(13, 47);
+            this.label1.Location = new System.Drawing.Point(71, 44);
             this.label1.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(26, 16);
@@ -140,13 +139,12 @@
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView1.Location = new System.Drawing.Point(16, 187);
+            this.dataGridView1.Location = new System.Drawing.Point(45, 198);
             this.dataGridView1.Margin = new System.Windows.Forms.Padding(4);
             this.dataGridView1.Name = "dataGridView1";
             this.dataGridView1.RowHeadersWidth = 51;
-            this.dataGridView1.Size = new System.Drawing.Size(1035, 352);
-            this.dataGridView1.TabIndex = 1;
-            this.dataGridView1.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellContentClick);
+            this.dataGridView1.Size = new System.Drawing.Size(973, 272);
+            this.dataGridView1.TabIndex = 5;
             this.dataGridView1.MouseDown += new System.Windows.Forms.MouseEventHandler(this.dataGridView1_MouseDown);
             // 
             // contextMenuStrip1
@@ -161,28 +159,27 @@
             // TSMI_duzenle
             // 
             this.TSMI_duzenle.Name = "TSMI_duzenle";
-            this.TSMI_duzenle.Size = new System.Drawing.Size(132, 24);
+            this.TSMI_duzenle.Size = new System.Drawing.Size(210, 24);
             this.TSMI_duzenle.Text = "Düzenle";
             this.TSMI_duzenle.Click += new System.EventHandler(this.TSMI_duzenle_Click);
             // 
             // TSMI_sil
             // 
             this.TSMI_sil.Name = "TSMI_sil";
-            this.TSMI_sil.Size = new System.Drawing.Size(132, 24);
+            this.TSMI_sil.Size = new System.Drawing.Size(210, 24);
             this.TSMI_sil.Text = "Sil";
             this.TSMI_sil.Click += new System.EventHandler(this.TSMI_sil_Click);
             // 
-            // DilIslemleri
+            // YayinEviIslemleri
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1067, 554);
-            this.Controls.Add(this.dataGridView1);
+            this.ClientSize = new System.Drawing.Size(1062, 496);
             this.Controls.Add(this.groupBox1);
-            this.Margin = new System.Windows.Forms.Padding(4);
-            this.Name = "DilIslemleri";
-            this.Text = "DilIslemleri";
-            this.Load += new System.EventHandler(this.DilIslemleri_Load);
+            this.Controls.Add(this.dataGridView1);
+            this.Name = "YayinEviIslemleri";
+            this.Text = "YayinEviIslemleri";
+            this.Load += new System.EventHandler(this.YayinEviIslemleri_Load);
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
@@ -194,16 +191,16 @@
         #endregion
 
         private System.Windows.Forms.GroupBox groupBox1;
+        private System.Windows.Forms.Button btn_duzenle;
+        private System.Windows.Forms.Button btn_ekle;
+        private System.Windows.Forms.Button btn_temizle;
         private System.Windows.Forms.TextBox tb_isim;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.TextBox tb_id;
         private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.Button btn_ekle;
-        private System.Windows.Forms.Button btn_temizle;
         private System.Windows.Forms.DataGridView dataGridView1;
         private System.Windows.Forms.ContextMenuStrip contextMenuStrip1;
         private System.Windows.Forms.ToolStripMenuItem TSMI_duzenle;
         private System.Windows.Forms.ToolStripMenuItem TSMI_sil;
-        private System.Windows.Forms.Button btn_duzenle;
     }
 }
