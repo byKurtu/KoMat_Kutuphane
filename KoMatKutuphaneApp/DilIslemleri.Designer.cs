@@ -30,7 +30,6 @@
         {
             this.components = new System.ComponentModel.Container();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
-            this.btn_duzenle = new System.Windows.Forms.Button();
             this.btn_ekle = new System.Windows.Forms.Button();
             this.btn_temizle = new System.Windows.Forms.Button();
             this.tb_isim = new System.Windows.Forms.TextBox();
@@ -41,6 +40,7 @@
             this.contextMenuStrip1 = new System.Windows.Forms.ContextMenuStrip(this.components);
             this.TSMI_duzenle = new System.Windows.Forms.ToolStripMenuItem();
             this.TSMI_sil = new System.Windows.Forms.ToolStripMenuItem();
+            this.btn_duzenle = new System.Windows.Forms.Button();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.contextMenuStrip1.SuspendLayout();
@@ -55,33 +55,18 @@
             this.groupBox1.Controls.Add(this.label2);
             this.groupBox1.Controls.Add(this.tb_id);
             this.groupBox1.Controls.Add(this.label1);
-            this.groupBox1.Location = new System.Drawing.Point(16, 15);
-            this.groupBox1.Margin = new System.Windows.Forms.Padding(4);
+            this.groupBox1.Location = new System.Drawing.Point(12, 12);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Padding = new System.Windows.Forms.Padding(4);
-            this.groupBox1.Size = new System.Drawing.Size(668, 165);
+            this.groupBox1.Size = new System.Drawing.Size(501, 134);
             this.groupBox1.TabIndex = 0;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Dil Bilgileri";
-            this.groupBox1.Enter += new System.EventHandler(this.groupBox1_Enter);
-            // 
-            // btn_duzenle
-            // 
-            this.btn_duzenle.Location = new System.Drawing.Point(310, 107);
-            this.btn_duzenle.Name = "btn_duzenle";
-            this.btn_duzenle.Size = new System.Drawing.Size(99, 28);
-            this.btn_duzenle.TabIndex = 4;
-            this.btn_duzenle.Text = "Dil Düzenle";
-            this.btn_duzenle.UseVisualStyleBackColor = true;
-            this.btn_duzenle.Visible = false;
-            this.btn_duzenle.Click += new System.EventHandler(this.button1_Click);
             // 
             // btn_ekle
             // 
-            this.btn_ekle.Location = new System.Drawing.Point(309, 107);
-            this.btn_ekle.Margin = new System.Windows.Forms.Padding(4);
+            this.btn_ekle.Location = new System.Drawing.Point(213, 87);
             this.btn_ekle.Name = "btn_ekle";
-            this.btn_ekle.Size = new System.Drawing.Size(100, 28);
+            this.btn_ekle.Size = new System.Drawing.Size(94, 23);
             this.btn_ekle.TabIndex = 3;
             this.btn_ekle.Text = "Dil Ekle";
             this.btn_ekle.UseVisualStyleBackColor = true;
@@ -89,48 +74,43 @@
             // 
             // btn_temizle
             // 
-            this.btn_temizle.Location = new System.Drawing.Point(172, 107);
-            this.btn_temizle.Margin = new System.Windows.Forms.Padding(4);
+            this.btn_temizle.Location = new System.Drawing.Point(110, 87);
             this.btn_temizle.Name = "btn_temizle";
-            this.btn_temizle.Size = new System.Drawing.Size(129, 28);
+            this.btn_temizle.Size = new System.Drawing.Size(97, 23);
             this.btn_temizle.TabIndex = 2;
             this.btn_temizle.Text = "Formu Temizle";
             this.btn_temizle.UseVisualStyleBackColor = true;
             // 
             // tb_isim
             // 
-            this.tb_isim.Location = new System.Drawing.Point(75, 75);
-            this.tb_isim.Margin = new System.Windows.Forms.Padding(4);
+            this.tb_isim.Location = new System.Drawing.Point(56, 61);
             this.tb_isim.Name = "tb_isim";
-            this.tb_isim.Size = new System.Drawing.Size(333, 22);
+            this.tb_isim.Size = new System.Drawing.Size(251, 20);
             this.tb_isim.TabIndex = 1;
             // 
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(13, 79);
-            this.label2.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label2.Location = new System.Drawing.Point(10, 64);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(52, 16);
+            this.label2.Size = new System.Drawing.Size(43, 13);
             this.label2.TabIndex = 0;
             this.label2.Text = "Dil Adı :";
             // 
             // tb_id
             // 
             this.tb_id.Enabled = false;
-            this.tb_id.Location = new System.Drawing.Point(75, 43);
-            this.tb_id.Margin = new System.Windows.Forms.Padding(4);
+            this.tb_id.Location = new System.Drawing.Point(56, 35);
             this.tb_id.Name = "tb_id";
-            this.tb_id.Size = new System.Drawing.Size(333, 22);
+            this.tb_id.Size = new System.Drawing.Size(251, 20);
             this.tb_id.TabIndex = 1;
             // 
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(13, 47);
-            this.label1.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label1.Location = new System.Drawing.Point(10, 38);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(26, 16);
+            this.label1.Size = new System.Drawing.Size(24, 13);
             this.label1.TabIndex = 0;
             this.label1.Text = "ID :";
             // 
@@ -140,46 +120,52 @@
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView1.Location = new System.Drawing.Point(16, 187);
-            this.dataGridView1.Margin = new System.Windows.Forms.Padding(4);
+            this.dataGridView1.Location = new System.Drawing.Point(12, 152);
             this.dataGridView1.Name = "dataGridView1";
-            this.dataGridView1.RowHeadersWidth = 51;
-            this.dataGridView1.Size = new System.Drawing.Size(1035, 352);
+            this.dataGridView1.Size = new System.Drawing.Size(776, 286);
             this.dataGridView1.TabIndex = 1;
-            this.dataGridView1.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellContentClick);
             this.dataGridView1.MouseDown += new System.Windows.Forms.MouseEventHandler(this.dataGridView1_MouseDown);
             // 
             // contextMenuStrip1
             // 
-            this.contextMenuStrip1.ImageScalingSize = new System.Drawing.Size(20, 20);
             this.contextMenuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.TSMI_duzenle,
             this.TSMI_sil});
             this.contextMenuStrip1.Name = "contextMenuStrip1";
-            this.contextMenuStrip1.Size = new System.Drawing.Size(133, 52);
+            this.contextMenuStrip1.Size = new System.Drawing.Size(117, 48);
             // 
             // TSMI_duzenle
             // 
             this.TSMI_duzenle.Name = "TSMI_duzenle";
-            this.TSMI_duzenle.Size = new System.Drawing.Size(132, 24);
+            this.TSMI_duzenle.Size = new System.Drawing.Size(116, 22);
             this.TSMI_duzenle.Text = "Düzenle";
             this.TSMI_duzenle.Click += new System.EventHandler(this.TSMI_duzenle_Click);
             // 
             // TSMI_sil
             // 
             this.TSMI_sil.Name = "TSMI_sil";
-            this.TSMI_sil.Size = new System.Drawing.Size(132, 24);
+            this.TSMI_sil.Size = new System.Drawing.Size(116, 22);
             this.TSMI_sil.Text = "Sil";
             this.TSMI_sil.Click += new System.EventHandler(this.TSMI_sil_Click);
             // 
+            // btn_duzenle
+            // 
+            this.btn_duzenle.Location = new System.Drawing.Point(213, 87);
+            this.btn_duzenle.Name = "btn_duzenle";
+            this.btn_duzenle.Size = new System.Drawing.Size(94, 23);
+            this.btn_duzenle.TabIndex = 4;
+            this.btn_duzenle.Text = "Dil Düzenle";
+            this.btn_duzenle.UseVisualStyleBackColor = true;
+            this.btn_duzenle.Visible = false;
+            this.btn_duzenle.Click += new System.EventHandler(this.btn_duzenle_Click);
+            // 
             // DilIslemleri
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1067, 554);
+            this.ClientSize = new System.Drawing.Size(800, 450);
             this.Controls.Add(this.dataGridView1);
             this.Controls.Add(this.groupBox1);
-            this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "DilIslemleri";
             this.Text = "DilIslemleri";
             this.Load += new System.EventHandler(this.DilIslemleri_Load);

@@ -25,27 +25,34 @@ namespace KoMatKutuphaneApp
             dataGridView1.DataSource = db.YazarListele();
         }
 
-        private void btn_yazarekle_Click(object sender, EventArgs e)
+        private void btn_yazarEkle_Click(object sender, EventArgs e)
         {
             if (!string.IsNullOrEmpty(tb_isim.Text))
             {
-                Yazar model = new Yazar();
-                model.Isim = tb_isim.Text;
-                model.SoyIsim = tb_soyisim.Text;
-                if (db.YazarEkle(model))
+                if (db.yazarKontrol(tb_isim.Text + " " + tb_soyisim.Text))
                 {
-                    dataGridView1.DataSource = db.YazarListele();
-                    tb_isim.Text = tb_soyisim.Text = "";
-                    MessageBox.Show("Yazar ekleme başarılı","Başarılı");
+                    Yazar model = new Yazar();
+                    model.Isim = tb_isim.Text;
+                    model.Soyisim = tb_soyisim.Text;
+                    if (db.YazarEkle(model))
+                    {
+                        dataGridView1.DataSource = db.YazarListele();
+                        tb_isim.Text = tb_soyisim.Text = "";
+                        MessageBox.Show("Yazar Ekleme Başarılı", "Başarılı");
+                    }
+                    else
+                    {
+                        MessageBox.Show("Yazar eklenirken bir hata oluştu", "Hata");
+                    }
                 }
                 else
                 {
-                    MessageBox.Show("Yazar eklenirken bir hata oluştu","Hata");
+                    MessageBox.Show("Yazar daha önceden eklenmiş.", "Hata");
                 }
             }
             else
             {
-                MessageBox.Show("Yazar ismi boş bırakılamaz", "Boş veri");
+                MessageBox.Show("Yazar ismi boş bırakılamaz", "Boş Veri");
             }
         }
 
@@ -57,7 +64,7 @@ namespace KoMatKutuphaneApp
                 rowindex = dataGridView1.HitTest(e.X, e.Y).RowIndex;
                 if (rowindex != -1)
                 {
-                    contextMenuStrip1.Show(dataGridView1,e.X,e.Y);
+                    contextMenuStrip1.Show(dataGridView1, e.X, e.Y);
                     dataGridView1.Rows[rowindex].Selected = true;
                 }
             }
@@ -65,11 +72,11 @@ namespace KoMatKutuphaneApp
 
         private void TSMI_duzenle_Click(object sender, EventArgs e)
         {
-            int id = Convert.ToInt32(dataGridView1.Rows[rowindex].Cells[0].Value);
+            int id =Convert.ToInt32(dataGridView1.Rows[rowindex].Cells[0].Value);
             Yazar model = db.YazarGetir(id);
             tb_id.Text = model.ID.ToString();
             tb_isim.Text = model.Isim;
-            tb_soyisim.Text = model.SoyIsim;
+            tb_soyisim.Text = model.Soyisim;
             btn_duzenle.Visible = true;
         }
 
@@ -80,7 +87,7 @@ namespace KoMatKutuphaneApp
             if (kitapsayi == 0)
             {
                 Yazar model = db.YazarGetir(id);
-                DialogResult sonuc = MessageBox.Show($"{model.Isim} {model.SoyIsim} yazarı silenecektir.\nOnaylıyor musunuz?", "Silme işlemini onaylayın", MessageBoxButtons.YesNo);
+                DialogResult sonuc = MessageBox.Show($"{model.Isim} {model.Soyisim} yazarı silinecektir.\nOnaylıyor musunuz?", "Silme işlemini onaylayın", MessageBoxButtons.YesNo);
                 if (sonuc == DialogResult.Yes)
                 {
                     db.YazarSil(id);
@@ -93,7 +100,7 @@ namespace KoMatKutuphaneApp
             }
             else
             {
-                MessageBox.Show($"Bu yazarın sistemde kayıtlı {kitapsayi} adet kitabı olduğu için bu yazar silinemez...", "Yazar Silinemez");
+                MessageBox.Show($"Bu yazararın sistemde kayıtlı {kitapsayi} adet kitabı olduğu için bu yazar silinemez...","Yazar Silinemez");
             }
         }
 
@@ -101,27 +108,39 @@ namespace KoMatKutuphaneApp
         {
             if (!string.IsNullOrEmpty(tb_isim.Text))
             {
-                Yazar model = new Yazar();
-                model.ID = Convert.ToInt32(tb_id.Text);
-                model.Isim = tb_isim.Text;
-                model.SoyIsim = tb_soyisim.Text;
-                if (db.YazarGuncelle(model))
+                if (db.yazarKontrol(tb_isim.Text+" "+tb_soyisim.Text))
                 {
-                    MessageBox.Show("Yazar Güncellendi", "Başarılı");
-                    dataGridView1.DataSource = db.YazarListele();
-                    tb_isim.Text = tb_soyisim.Text = tb_id.Text = "";
-                    btn_duzenle.Visible = false;
-
+                    Yazar model = new Yazar();
+                    model.ID = Convert.ToInt32(tb_id.Text);
+                    model.Isim = tb_isim.Text;
+                    model.Soyisim = tb_soyisim.Text;
+                    if (db.YazarGuncelle(model))
+                    {
+                        MessageBox.Show("Yazar güncellendi.", "Başarılı");
+                        dataGridView1.DataSource = db.YazarListele();
+                        tb_isim.Text = tb_soyisim.Text = tb_id.Text = "";
+                        btn_duzenle.Visible = false;
+                    }
+                    else
+                    {
+                        MessageBox.Show("Yazar güncellenirken bir hata oluştu.", "Başarısız");
+                    }
                 }
                 else
                 {
-                    MessageBox.Show("Yazar Güncellenirken bir hata oluştu");
+                    MessageBox.Show("Bu yazar zaten var", "Hata");
                 }
             }
             else
             {
-                MessageBox.Show("Yazar ismi boş bırakılamaz", "Boş veri");
+                MessageBox.Show("Yazar ismi boş bırakılamaz.", "Boş Veri");
             }
+        }
+
+        private void btn_temizle_Click(object sender, EventArgs e)
+        {
+            tb_isim.Text = "";
+            tb_soyisim.Text = "";
         }
     }
 }

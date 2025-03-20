@@ -65,25 +65,42 @@ namespace KoMatKutuphaneApp
 
         private void TSMI_duzenle_Click(object sender, EventArgs e)
         {
-            Tur t = db.TurGetir(secilenID);
-            tb_id.Text = t.ID.ToString();
-            tb_isim.Text = t.Isim;
+            Tur d = db.TurGetir(secilenID);
+            tb_id.Text = d.ID.ToString();
+            tb_isim.Text = d.Isim;
             btn_duzenle.Visible = true;
         }
 
         private void TSMI_sil_Click(object sender, EventArgs e)
         {
-            db.TurSil(secilenID);
-            dataGridView1.DataSource = db.TurListele();
+            int kitapsayi = db.TurKitapSayi(secilenID);
+            if (kitapsayi == 0)
+            {
+                Tur model = db.TurGetir(secilenID);
+                DialogResult sonuc = MessageBox.Show($"{model.Isim} türü silinecektir.\nOnaylıyor musunuz?", "Silme işlemini onaylayın", MessageBoxButtons.YesNo);
+                if (sonuc == DialogResult.Yes)
+                {
+                    db.TurSil(secilenID);
+                    dataGridView1.DataSource = db.TurListele();
+                }
+                else
+                {
+                    MessageBox.Show("Silme işlemi iptal edildi", "İptal");
+                }
+            }
+            else
+            {
+                MessageBox.Show($"Bu türe ait sistemde kayıtlı {kitapsayi} adet kitabı olduğu için bu tür silinemez...", "Tür Silinemez");
+            }
         }
 
         private void btn_duzenle_Click(object sender, EventArgs e)
         {
-            Tur t = db.TurGetir(secilenID);
+            Tur d = db.TurGetir(secilenID);
             if (!string.IsNullOrEmpty(tb_isim.Text))
             {
-                t.Isim = tb_isim.Text;
-                if (db.TurGuncelle(t))
+                d.Isim = tb_isim.Text;
+                if (db.TurGuncelle(d))
                 {
                     MessageBox.Show("Güncelleme Başarılı", "Başarılı");
                     tb_id.Text = tb_isim.Text = "";
@@ -92,13 +109,19 @@ namespace KoMatKutuphaneApp
                 }
                 else
                 {
-                    MessageBox.Show("Tür güncellenirken bir hata oluştur", "Başarısız");
+                    MessageBox.Show("Tür güncellenirken bir hata oluştu", "Başarısız");
                 }
             }
             else
             {
-                MessageBox.Show("Tür adi boş bırakılamaz", "Hata");
+                MessageBox.Show("Tür adı boş bırakılamaz", "Hata");
             }
+        }
+
+        private void btn_temizle_Click(object sender, EventArgs e)
+        {
+            tb_id.Text = tb_isim.Text = "";
+            btn_duzenle.Visible = false;
         }
     }
 }

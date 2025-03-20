@@ -10,6 +10,6 @@ namespace VeriErisimKatmani
     {
         public int ID { get; set; }
         public string Isim { get; set; }
-        public string SoyIsim { get; set; }
+        public string Soyisim { get; set; }
     }
 }

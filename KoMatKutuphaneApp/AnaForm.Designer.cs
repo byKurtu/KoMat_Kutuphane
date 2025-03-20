@@ -41,13 +41,15 @@
             this.TSMI_Kitaplar = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripSeparator2 = new System.Windows.Forms.ToolStripSeparator();
             this.kiralamalarToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.TSMI_Kiradakiler = new System.Windows.Forms.ToolStripMenuItem();
+            this.TSMI_TumKiralamalar = new System.Windows.Forms.ToolStripMenuItem();
             this.TSMI_Yardim = new System.Windows.Forms.ToolStripMenuItem();
+            this.TSMI_Gelistiriciler = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
             // menuStrip1
             // 
-            this.menuStrip1.ImageScalingSize = new System.Drawing.Size(20, 20);
             this.menuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.dosyaToolStripMenuItem,
             this.TSMI_KutuphaneIslemleri,
@@ -55,7 +57,7 @@
             this.TSMI_Yardim});
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
-            this.menuStrip1.Size = new System.Drawing.Size(1257, 30);
+            this.menuStrip1.Size = new System.Drawing.Size(1343, 24);
             this.menuStrip1.TabIndex = 0;
             this.menuStrip1.Text = "menuStrip1";
             // 
@@ -64,14 +66,15 @@
             this.dosyaToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.TSMI_Kapat});
             this.dosyaToolStripMenuItem.Name = "dosyaToolStripMenuItem";
-            this.dosyaToolStripMenuItem.Size = new System.Drawing.Size(64, 26);
+            this.dosyaToolStripMenuItem.Size = new System.Drawing.Size(51, 20);
             this.dosyaToolStripMenuItem.Text = "Dosya";
             // 
             // TSMI_Kapat
             // 
             this.TSMI_Kapat.Name = "TSMI_Kapat";
-            this.TSMI_Kapat.Size = new System.Drawing.Size(131, 26);
+            this.TSMI_Kapat.Size = new System.Drawing.Size(104, 22);
             this.TSMI_Kapat.Text = "Kapat";
+            this.TSMI_Kapat.Click += new System.EventHandler(this.TSMI_Kapat_Click);
             // 
             // TSMI_KutuphaneIslemleri
             // 
@@ -84,81 +87,108 @@
             this.TSMI_Kitaplar,
             this.toolStripSeparator2});
             this.TSMI_KutuphaneIslemleri.Name = "TSMI_KutuphaneIslemleri";
-            this.TSMI_KutuphaneIslemleri.Size = new System.Drawing.Size(154, 26);
+            this.TSMI_KutuphaneIslemleri.Size = new System.Drawing.Size(124, 20);
             this.TSMI_KutuphaneIslemleri.Text = "Kütüphane İşlemleri";
             // 
             // TSMI_diller
             // 
             this.TSMI_diller.Name = "TSMI_diller";
-            this.TSMI_diller.Size = new System.Drawing.Size(224, 26);
+            this.TSMI_diller.Size = new System.Drawing.Size(133, 22);
             this.TSMI_diller.Text = "Diller";
             this.TSMI_diller.Click += new System.EventHandler(this.TSMI_diller_Click);
             // 
             // TSMI_turler
             // 
             this.TSMI_turler.Name = "TSMI_turler";
-            this.TSMI_turler.Size = new System.Drawing.Size(224, 26);
+            this.TSMI_turler.Size = new System.Drawing.Size(133, 22);
             this.TSMI_turler.Text = "Türler";
             this.TSMI_turler.Click += new System.EventHandler(this.TSMI_turler_Click);
             // 
             // TSMI_Yazarlar
             // 
             this.TSMI_Yazarlar.Name = "TSMI_Yazarlar";
-            this.TSMI_Yazarlar.Size = new System.Drawing.Size(224, 26);
+            this.TSMI_Yazarlar.Size = new System.Drawing.Size(133, 22);
             this.TSMI_Yazarlar.Text = "Yazarlar";
             this.TSMI_Yazarlar.Click += new System.EventHandler(this.TSMI_Yazarlar_Click);
             // 
             // TSMI_YayinEvleri
             // 
             this.TSMI_YayinEvleri.Name = "TSMI_YayinEvleri";
-            this.TSMI_YayinEvleri.Size = new System.Drawing.Size(224, 26);
+            this.TSMI_YayinEvleri.Size = new System.Drawing.Size(133, 22);
             this.TSMI_YayinEvleri.Text = "Yayın Evleri";
             this.TSMI_YayinEvleri.Click += new System.EventHandler(this.TSMI_YayinEvleri_Click);
             // 
             // toolStripSeparator1
             // 
             this.toolStripSeparator1.Name = "toolStripSeparator1";
-            this.toolStripSeparator1.Size = new System.Drawing.Size(221, 6);
+            this.toolStripSeparator1.Size = new System.Drawing.Size(130, 6);
             // 
             // TSMI_Kitaplar
             // 
             this.TSMI_Kitaplar.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold);
             this.TSMI_Kitaplar.ForeColor = System.Drawing.Color.ForestGreen;
             this.TSMI_Kitaplar.Name = "TSMI_Kitaplar";
-            this.TSMI_Kitaplar.Size = new System.Drawing.Size(224, 26);
+            this.TSMI_Kitaplar.Size = new System.Drawing.Size(133, 22);
             this.TSMI_Kitaplar.Text = "Kitaplar";
+            this.TSMI_Kitaplar.Click += new System.EventHandler(this.TSMI_Kitaplar_Click);
             // 
             // toolStripSeparator2
             // 
             this.toolStripSeparator2.Name = "toolStripSeparator2";
-            this.toolStripSeparator2.Size = new System.Drawing.Size(221, 6);
+            this.toolStripSeparator2.Size = new System.Drawing.Size(130, 6);
             // 
             // kiralamalarToolStripMenuItem
             // 
+            this.kiralamalarToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.TSMI_Kiradakiler,
+            this.TSMI_TumKiralamalar});
             this.kiralamalarToolStripMenuItem.Name = "kiralamalarToolStripMenuItem";
-            this.kiralamalarToolStripMenuItem.Size = new System.Drawing.Size(99, 26);
+            this.kiralamalarToolStripMenuItem.Size = new System.Drawing.Size(78, 20);
             this.kiralamalarToolStripMenuItem.Text = "Kiralamalar";
+            // 
+            // TSMI_Kiradakiler
+            // 
+            this.TSMI_Kiradakiler.Name = "TSMI_Kiradakiler";
+            this.TSMI_Kiradakiler.Size = new System.Drawing.Size(160, 22);
+            this.TSMI_Kiradakiler.Text = "Kiradaki Kitaplar";
+            this.TSMI_Kiradakiler.Click += new System.EventHandler(this.TSMI_Kiradakiler_Click);
+            // 
+            // TSMI_TumKiralamalar
+            // 
+            this.TSMI_TumKiralamalar.Name = "TSMI_TumKiralamalar";
+            this.TSMI_TumKiralamalar.Size = new System.Drawing.Size(160, 22);
+            this.TSMI_TumKiralamalar.Text = "Tüm Kiralamalar";
+            this.TSMI_TumKiralamalar.Click += new System.EventHandler(this.TSMI_TumKiralamalar_Click);
             // 
             // TSMI_Yardim
             // 
+            this.TSMI_Yardim.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.TSMI_Gelistiriciler});
             this.TSMI_Yardim.Name = "TSMI_Yardim";
-            this.TSMI_Yardim.Size = new System.Drawing.Size(69, 26);
+            this.TSMI_Yardim.Size = new System.Drawing.Size(56, 20);
             this.TSMI_Yardim.Text = "Yardım";
+            // 
+            // TSMI_Gelistiriciler
+            // 
+            this.TSMI_Gelistiriciler.Name = "TSMI_Gelistiriciler";
+            this.TSMI_Gelistiriciler.Size = new System.Drawing.Size(135, 22);
+            this.TSMI_Gelistiriciler.Text = "Geliştiriciler";
+            this.TSMI_Gelistiriciler.Click += new System.EventHandler(this.TSMI_Gelistiriciler_Click);
             // 
             // AnaForm
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
-            this.ClientSize = new System.Drawing.Size(1257, 601);
+            this.ClientSize = new System.Drawing.Size(1343, 668);
             this.Controls.Add(this.menuStrip1);
             this.DoubleBuffered = true;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.IsMdiContainer = true;
             this.MainMenuStrip = this.menuStrip1;
-            this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "AnaForm";
             this.Text = "Kokpit & Matrix Kütüphanesi";
+            this.Load += new System.EventHandler(this.AnaForm_Load);
             this.menuStrip1.ResumeLayout(false);
             this.menuStrip1.PerformLayout();
             this.ResumeLayout(false);
@@ -181,5 +211,8 @@
         private System.Windows.Forms.ToolStripSeparator toolStripSeparator2;
         private System.Windows.Forms.ToolStripMenuItem kiralamalarToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem TSMI_Yardim;
+        private System.Windows.Forms.ToolStripMenuItem TSMI_Kiradakiler;
+        private System.Windows.Forms.ToolStripMenuItem TSMI_TumKiralamalar;
+        private System.Windows.Forms.ToolStripMenuItem TSMI_Gelistiriciler;
     }
 }

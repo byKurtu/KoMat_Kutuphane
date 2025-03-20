@@ -77,7 +77,7 @@ namespace KoMatKutuphaneApp
             dataGridView1.DataSource = db.DilListele();
         }
 
-        private void button1_Click(object sender, EventArgs e)
+        private void btn_duzenle_Click(object sender, EventArgs e)
         {
             Dil d = db.DilGetir(secilenID);
             if (!string.IsNullOrEmpty(tb_isim.Text))
@@ -92,23 +92,13 @@ namespace KoMatKutuphaneApp
                 }
                 else
                 {
-                    MessageBox.Show("Dil güncellenirken bir hata oluştur", "Başarısız");
+                    MessageBox.Show("Dil güncellenirken bir hata oluştu", "Başarısız");
                 }
             }
             else
             {
-                MessageBox.Show("Dil adi boş bırakılamaz", "Hata");
-            }
-        }
-
-        private void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
-        {
-
-        }
-
-        private void groupBox1_Enter(object sender, EventArgs e)
-        {
-
+                MessageBox.Show("Dil adı boş bırakılamaz", "Hata");
+            }    
         }
     }
 }

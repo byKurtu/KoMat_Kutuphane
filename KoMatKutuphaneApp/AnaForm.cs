@@ -46,14 +46,14 @@ namespace KoMatKutuphaneApp
 
         private void TSMI_Yazarlar_Click(object sender, EventArgs e)
         {
-            Form[] acikFromlar = this.MdiChildren;
+            Form[] acikFormlar = this.MdiChildren;
             bool acikMi = false;
-            for (int i = 0; i < acikFromlar.Length; i++)
+            for (int i = 0; i < acikFormlar.Length; i++)
             {
-                if (acikFromlar[i].GetType() == typeof(YazarIslemleri))
+                if (acikFormlar[i].GetType() == typeof(YazarIslemleri))
                 {
                     acikMi = true;
-                    acikFromlar[i].Activate();
+                    acikFormlar[i].Activate();
                 }
             }
             if (acikMi == false)
@@ -74,10 +74,9 @@ namespace KoMatKutuphaneApp
                 {
                     acikMi = true;
                     acikFormlar[i].Activate();
-                    break;
                 }
             }
-            if (!acikMi)
+            if (acikMi == false)
             {
                 TurIslemleri frm = new TurIslemleri();
                 frm.MdiParent = this;
@@ -95,12 +94,122 @@ namespace KoMatKutuphaneApp
                 {
                     acikMi = true;
                     acikFormlar[i].Activate();
-                    break;
                 }
             }
-            if (!acikMi)
+            if (acikMi == false)
             {
                 YayinEviIslemleri frm = new YayinEviIslemleri();
+                frm.MdiParent = this;
+                frm.Show();
+            }
+        }
+
+        private void TSMI_Kitaplar_Click(object sender, EventArgs e)
+        {
+            Form[] acikFormlar = this.MdiChildren;
+            bool acikMi = false;
+            for (int i = 0; i < acikFormlar.Length; i++)
+            {
+                if (acikFormlar[i].GetType() == typeof(KitapIslemleri))
+                {
+                    acikMi = true;
+                    acikFormlar[i].Activate();
+                }
+            }
+            if (acikMi == false)
+            {
+                KitapIslemleri frm = new KitapIslemleri();
+                frm.MdiParent = this;
+                frm.Show();
+            }
+        }
+
+        private void yazarEkleToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void TSMI_Kiradakiler_Click(object sender, EventArgs e)
+        {
+            Form[] acikFormlar = this.MdiChildren;
+            bool acikMi = false;
+            for (int i = 0; i < acikFormlar.Length; i++)
+            {
+                if (acikFormlar[i].GetType() == typeof(Kiralamalar))
+                {
+                    acikMi = true;
+                    acikFormlar[i].Activate();
+                }
+            }
+            if (acikMi == false)
+            {
+                Kiralamalar frm = new Kiralamalar();
+                frm.MdiParent = this;
+                frm.Show();
+            }
+        }
+
+        private void TSMI_TumKiralamalar_Click(object sender, EventArgs e)
+        {
+            Form[] acikFormlar = this.MdiChildren;
+            bool acikMi = false;
+            for (int i = 0; i < acikFormlar.Length; i++)
+            {
+                if (acikFormlar[i].GetType() == typeof(TumKiralamalar))
+                {
+                    acikMi = true;
+                    acikFormlar[i].Activate();
+                }
+            }
+            if (acikMi == false)
+            {
+                TumKiralamalar frm = new TumKiralamalar();
+                frm.MdiParent = this;
+                frm.Show();
+            }
+        }
+
+        private void TSMI_Kapat_Click(object sender, EventArgs e)
+        {
+            Application.Exit();
+        }
+
+        private void TSMI_Gelistiriciler_Click(object sender, EventArgs e)
+        {
+            Form[] acikFormlar = this.MdiChildren;
+            bool acikMi = false;
+            for (int i = 0; i < acikFormlar.Length; i++)
+            {
+                if (acikFormlar[i].GetType() == typeof(Gelistiriciler))
+                {
+                    acikMi = true;
+                    acikFormlar[i].Activate();
+                }
+            }
+            if (acikMi == false)
+            {
+                Gelistiriciler frm = new Gelistiriciler();
+                frm.MdiParent = this;
+                frm.Show();
+            }
+        }
+
+        private void AnaForm_Load(object sender, EventArgs e)
+        {
+            Form[] acikFormlar = this.MdiChildren;
+            bool acikMi = false;
+            for (int i = 0; i < acikFormlar.Length; i++)
+            {
+                if (acikFormlar[i].GetType() == typeof(Gecikmisler))
+                {
+                    acikMi = true;
+                    acikFormlar[i].Activate();
+                }
+            }
+            if (acikMi == false)
+            {
+                Gecikmisler frm = new Gecikmisler();
+                frm.WindowState = FormWindowState.Maximized;
                 frm.MdiParent = this;
                 frm.Show();
             }
